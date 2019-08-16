@@ -1,6 +1,10 @@
 #include <iostream>
 #include "link.hpp"
 
+
+Node::Node(){std::cout << "constructor Node" << std::endl;}
+Node::~Node(){std::cout << "destructor Node" << std::endl;}
+
 /*!
 * @fn my_NodeList(void) 
 */
