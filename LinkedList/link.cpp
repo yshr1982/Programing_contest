@@ -1,6 +1,10 @@
 #include <iostream>
 #include "link.hpp"
 
+
+Node::Node(){std::cout << "constructor Node" << std::endl;}
+Node::~Node(){std::cout << "destructor Node" << std::endl;}
+
 /*!
 * @fn my_NodeList(void) 
 */
@@ -64,23 +68,12 @@ void my_NodeList::show(void){
     std::cout << temp_node->data << std::endl;
 }
 
-#if 0 
-int main(void){
-    class my_NodeList temp;
-    Node *temp_node;
-
-    temp.apendToTail(10);
-    temp.apendToTail(11);
-    temp.apendToTail(12);
-    temp.apendToTail(13);
-    temp.apendToTail(14);
-    temp.show();
-    temp.deletNode(13);
-    temp.show();
-    temp.deletNode(10);
-    temp.show();
-
-
-    return 0;
+Node * my_NodeList::sfindNthToTail(Node *head,int find_N,int *node_count){
+    if(head == NULL){return NULL;}
+    Node *node = this.findNthToTail(head->next,find_N,node_count);
+    *node_count = *node_count + 1;
+    if(*node_count == find_N){
+        return head;
+    }
+    return node;
 }
-#endif
