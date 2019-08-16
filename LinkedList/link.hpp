@@ -17,6 +17,8 @@ public:
     Node *deletNode(int d);
     int findTail(int n);
     void show(void);
-    Node *sfindNthToTail(Node *head,int find_N,int *node_count);
+    Node *findNthToTail(Node *head,int find_N,int *node_count);
+    void overWriteNode(Node *node);
+    void sortNode(int x);
 };
 #endif
