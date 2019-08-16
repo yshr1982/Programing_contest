@@ -13,7 +13,7 @@ public:
     Node *head;
     my_NodeList(void);
     void apendToTail(int d);
-    void deletNode(int d);
+    Node *deletNode(int d);
     void show(void);
 };
 #endif

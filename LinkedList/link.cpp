@@ -32,21 +32,23 @@ void my_NodeList::apendToTail(int d){
 * @fn deletNode(int d) 
 * @param del_node Want to erase node address.
 */
-void my_NodeList::deletNode(int d){ 
+Node * my_NodeList::deletNode(int d){ 
     Node *temp_node = this->head;
-    if(temp_node == NULL){return;}
+    if(temp_node == NULL){goto FIN;}
     if(temp_node->data == d){
         this->head = temp_node->next;
-        return;
+        goto FIN;
     }
     while(temp_node->next != NULL){
         if(temp_node->next->data == d){
             temp_node->next = temp_node->next->next;
-            return;
+            goto FIN;
         }
         temp_node = temp_node->next;
     }
-    return;
+
+FIN:
+    return this->head;
 }
 /*!
 * @fn show(show) 
@@ -62,6 +64,7 @@ void my_NodeList::show(void){
     std::cout << temp_node->data << std::endl;
 }
 
+#if 0 
 int main(void){
     class my_NodeList temp;
     Node *temp_node;
@@ -80,3 +83,4 @@ int main(void){
 
     return 0;
 }
+#endif
