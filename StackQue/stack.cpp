@@ -1,6 +1,6 @@
 #include <iostream>
 #include "stack.hpp"
-#define STACK_DEPTH 10
+#define STACK_DEPTH 100
 /*!
 * @fn Node(void) 
 */
@@ -69,9 +69,12 @@ bool Stack::isFull(void){
 */
 void Stack::show(void){
     Node *temp_node = this->top ;
-    if(temp_node == NULL){return;}
+    if(temp_node == NULL){
+        std::cout << "empty" << std::endl;
+        return;
+    }
     while(temp_node->next != NULL){
-        std::cout << temp_node->data << std::endl;
+        std::cout << temp_node->data << " ";
         temp_node = temp_node->next;
     }
     std::cout << temp_node->data << std::endl;

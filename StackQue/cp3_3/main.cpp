@@ -49,12 +49,6 @@ public:
     }
 };
 
-
-struct stack_info{
-    int offset;
-    int stact_size;
-};
-
 int main(void){
     class SetOfStacks *stacks;
 
