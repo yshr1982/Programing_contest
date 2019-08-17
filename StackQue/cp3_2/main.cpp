@@ -5,13 +5,10 @@
 
 // Implement three stack with one array. 
 // Array size is 1000
-
 #define STACK_SIZE_1    300
 #define STACK_SIZE_2    400
 #define STACK_SIZE_3    300
 #define SIZE_ARRAY      (STACK_SIZE_1 + STACK_SIZE_2 + STACK_SIZE_3)
-#define ERROR_CODE 99999
-
 
 #define LIST_NUM (10)
 #define MAX_NUMBER_1 (20)
@@ -53,18 +50,6 @@ public:
         if(this->min_data.peek() == -ERROR_CODE){return ERROR_CODE;}
         return this->min_data.peek();
     }
-};
-
-
-struct stack_info{
-    int offset;
-    int stact_size;
-};
-
-struct stack_info info[3] = {
-    {0                              ,   STACK_SIZE_1 },
-    {STACK_SIZE_1                   ,   STACK_SIZE_2 },
-    {STACK_SIZE_1 + STACK_SIZE_2    ,   STACK_SIZE_3 }
 };
 
 int main(void){
