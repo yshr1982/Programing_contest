@@ -19,6 +19,7 @@ public:
     int peek();
     bool isEmpty();
     bool isFull();
+    void show();
 };
 
 class Queue{

@@ -64,6 +64,20 @@ bool Stack::isFull(void){
 }
 
 /*!
+* @fn show(void) 
+* @brief show current stack .
+*/
+void Stack::show(void){
+    Node *temp_node = this->top ;
+    if(temp_node == NULL){return;}
+    while(temp_node->next != NULL){
+        std::cout << temp_node->data << std::endl;
+        temp_node = temp_node->next;
+    }
+    std::cout << temp_node->data << std::endl;
+}
+
+/*!
 * @fn enqueue(int d) 
 * @param d Want to add data.
 */
