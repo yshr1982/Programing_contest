@@ -49,19 +49,51 @@ void Tree::insert(unsigned int k){
     }
 
 }
+void Tree::del(unsigned int k){
+
+}
 void Tree::print(void){
     this->preorder(this->top);
     std::cout << std::endl;
     this->inorder(this->top);
     std::cout << std::endl;
+    this->postorder(this->top);
+    std::cout << std::endl;
 
 }
 
-void Tree::search(void){
+Node *Tree::search(Node *node,unsigned int key){
+    Node *tmp;
+    if(node == NULL){return NULL;}
+    if(node->key == key){return node;}
+    if(node->key >= key){
+        tmp = this->search(node->left,key);
+    }else{
+        tmp = this->search(node->right,key);
+    }
+    if(tmp == NULL){
+        std::cout << "No hit " << " key " << key << std::endl;
+    }else{
+        std::cout << "search " << tmp->key << " key " << key << std::endl;
+    }
+    return tmp;
+
+
 
 }
-void Tree::setNode(Node *n,unsigned int k,Node *right,Node *left){
 
+unsigned int Tree::getDepth(Node *node){
+    unsigned int left_depth = 0;
+    unsigned int right_depth = 0;
+
+    if(node == NULL){return 0;}
+    left_depth = this->getDepth(node->left);
+    right_depth = this->getDepth(node->right);
+    if(left_depth > right_depth){
+        return left_depth + 1;
+    }else{
+        return right_depth + 1;
+    }
 }
 
 /*!
@@ -86,5 +118,15 @@ void Tree::inorder(Node *n){
     if(n->left != NULL){this->inorder(n->left);}
     std::cout << " " << n->key ;
     if(n->right != NULL){this->inorder(n->right);}
+}
 
+/*!
+* Depth-first search : postorder
+*
+*/
+void Tree::postorder(Node *n){
+    if(n == NULL){return;}
+    if(n->left != NULL){this->inorder(n->left);}
+    if(n->right != NULL){this->inorder(n->right);}
+    std::cout << " " << n->key ;
 }
