@@ -81,13 +81,22 @@ void Stack::show(void){
 }
 
 /*!
+* @fn Queue(int d) 
+* @brief constractor.
+*/
+Queue::Queue(void){
+    this->first = NULL;
+    this->last = NULL;
+}
+
+/*!
 * @fn enqueue(int d) 
 * @param d Want to add data.
 */
 void Queue::enqueue(int d){
     if(this->first == NULL){
-        this->last = new Node(d);
-        this->first = this->last;
+        this->first = new Node(d);
+        this->last = this->first ;
     }else{
         this->last->next = new Node(d);
         this->last = this->last->next; 
@@ -102,4 +111,25 @@ Node * Queue::dequeue(void){
     Node *ret = this->first;
     this->first = this->first->next;
     return ret;
+}
+/*!
+* @fn peek(void) 
+* @param del_node Want to erase node address.
+*/
+Node * Queue::peek(void){ 
+    if(this->first == NULL){return NULL;}
+    return this->first;
+}
+
+void Queue::show(void){
+    Node *temp_node = this->first ;
+    if(temp_node == NULL){
+        std::cout << "empty" << std::endl;
+        return;
+    }
+    while(temp_node != NULL){
+        std::cout << temp_node->data << " ";
+        temp_node = temp_node->next;
+    }
+    std::cout << std::endl;
 }

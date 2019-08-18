@@ -25,8 +25,11 @@ public:
 class Queue{
     Node *first,*last;
 public:
+    Queue(void);
     void enqueue(int item);
     Node *dequeue(void);
+    Node *peek(void);
+    void show(void);
 };
 
 #endif
